@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(
     function(string $className): void {
-        $filename = __DIR__ . "/src/$className.php";
+        $filename = sprintf('%s/src/%s.php', __DIR__, strtr($className, '\\', '/'));
         if (file_exists($filename)) {
             require_once $filename;
         }
